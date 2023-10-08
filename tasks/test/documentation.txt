@@ -1,0 +1,30 @@
+*Estos casos de prueba son válidos utilizando 
+BeginningWeek  = 2023-10-02 00:00:00 
+Prueba 1: Dos proyectos con fechas actualizadas recientemente 
+Resultados esperados:
+•	La función debería filtrar ambos proyectos ya que ambas fechas de actualización están después de BeginningWeek.
+•	Debería devolver una lista con los dos proyectos y un recuento de 2 proyectos en total.
+Prueba 2: Dos proyectos con fechas de actualización en el pasado 
+Resultados esperados:
+•	La función no debería filtrar ningún proyecto ya que ambas fechas de actualización están antes de BeginningWeek.
+•	Debería devolver una lista vacía ya que no hay proyectos que cumplan con la condición.
+Prueba 3: Proyectos con valores faltantes y errores en fechas
+ Resultados esperados:
+•	La función debería imprimir un mensaje de error indicando que hay un proyecto con valores incorrectos en la fecha de actualización y cuál es su ID.
+•	Debería devolver una lista con el segundo proyecto, ya que cumple con la condición de fecha de actualización.
+•	Debería crear un archivo de registro (log_issues.json) que contenga el ID del proyecto con la fecha incorrecta.
+Prueba 4: Proyectos con mezcla de fechas actualizadas recientemente y en el pasado 
+Resultados esperados:
+•	La función debería filtrar los proyectos 7 y 9, ya que sus fechas de actualización están después de BeginningWeek.
+•	Debería excluir el proyecto 8, ya que su fecha de actualización está antes de BeginningWeek.
+•	Debería devolver una lista con los proyectos 7 y 9 y un recuento de 2 proyectos en total.
+Prueba 5: Proyectos con diferentes estados (status) 
+Resultados esperados:
+•	La función debería filtrar ambos proyectos, ya que ambos tienen fechas de actualización después de BeginningWeek.
+•	Debería devolver una lista con los proyectos 10 y 11 y un recuento de 2 proyectos en total.
+Prueba 6: Proyecto sin fecha de actualización (fecha faltante) 
+Resultados esperados:
+•	La función debería imprimir un mensaje de error indicando que hay un proyecto sin fecha de actualización y cuál es su ID.
+•	Debería devolver una lista vacía ya que no hay proyectos que cumplan con la condición de fecha de actualización.
+
+
