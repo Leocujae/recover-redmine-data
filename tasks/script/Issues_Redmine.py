@@ -49,12 +49,22 @@ def flattenJSON(values):
         if flattened_issue['closed_on'] is None:
             flattened_issue['closed_on'] = ""
 
-        # Aplanar campos de fechas
         # flattened_issue['due_date']
+        if flattened_issue['due_date'] is None:
+            flattened_issue['due_date'] = ""
+       
         # flattened_issue['start_date']
+        if flattened_issue['start_date'] is None:
+            flattened_issue['start_date'] = ""
+            
         # flattened_issue['created_on']
+        if flattened_issue['created_on'] is None:
+            flattened_issue['created_on'] = ""
+            
         # flattened_issue['updated_on']
-
+        if flattened_issue['updated_on'] is None:
+            flattened_issue['updated_on'] = ""
+        
         # flattened_issue['estimated_hours']
         if flattened_issue['estimated_hours'] is None:
             flattened_issue['estimated_hours'] = -1
