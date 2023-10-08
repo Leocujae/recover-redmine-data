@@ -1,0 +1,32 @@
+[
+    {
+        "id": 5,
+        "name": "Proyecto_5",
+        "description": "Descripción del Proyecto 5",
+        "status": 1,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2022-12-10T08:30:00Z",
+        "updated_on": "Fecha incorrecta",
+        "custom_fields_id": 12,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Product",
+        "parent_id": -1,
+        "parent_name": ""
+    },
+    {
+        "id": 6,
+        "name": "Proyecto_6",
+        "description": "Descripción del Proyecto 6",
+        "status": 2,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2022-12-15T14:00:00Z",
+        "updated_on": "2023-10-06T15:30:00Z",
+        "custom_fields_id": 7,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Research",
+        "parent_id": -1,
+        "parent_name": ""
+    }
+]

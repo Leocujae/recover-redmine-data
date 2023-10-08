@@ -1,0 +1,16 @@
+[
+    {
+        "id": 12,
+        "name": "Proyecto_12",
+        "description": "Descripción del Proyecto 12",
+        "status": 1,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-09-20T14:00:00Z",
+        "custom_fields_id": 7,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Research",
+        "parent_id": -1,
+        "parent_name": ""
+    }
+]

@@ -183,11 +183,11 @@ def flattenJSON(values):
     return flattened_data
 
 def export_jsom(flattened_data):
-    with open('flattened_data_issues.json', 'w') as file:
+    with open('tasks/file/flattened_data_issues.json', 'w') as file:
         json.dump(flattened_data, file)
 
     header = flattened_data[0].keys()
-    with open('flattened_data_issues.csv', 'w', newline='') as file:
+    with open('tasks/file/flattened_data_issues.csv', 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=header)
         writer.writeheader()
         writer.writerows(flattened_data)
@@ -195,3 +195,6 @@ def export_jsom(flattened_data):
     for temp in flattened_data:
         print(temp)
         print("")
+
+
+

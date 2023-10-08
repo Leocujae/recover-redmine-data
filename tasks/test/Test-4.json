@@ -1,0 +1,47 @@
+[
+    {
+        "id": 7,
+        "name": "Proyecto_7",
+        "description": "Descripción del Proyecto 7",
+        "status": 1,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-10-05T08:00:00Z",
+        "updated_on": "2023-10-05T08:00:00Z",
+        "custom_fields_id": 15,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Services",
+        "parent_id": -1,
+        "parent_name": ""
+    },
+    {
+        "id": 8,
+        "name": "Proyecto_8",
+        "description": "Descripción del Proyecto 8",
+        "status": 2,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-09-30T14:30:00Z",
+        "updated_on": "2023-09-30T14:30:00Z",
+        "custom_fields_id": 3,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Group",
+        "parent_id": -1,
+        "parent_name": ""
+    },
+    {
+        "id": 9,
+        "name": "Proyecto_9",
+        "description": "Descripción del Proyecto 9",
+        "status": 3,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-10-07T11:15:00Z",
+        "updated_on": "2023-10-07T11:15:00Z",
+        "custom_fields_id": 10,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Development",
+        "parent_id": -1,
+        "parent_name": ""
+    }
+]

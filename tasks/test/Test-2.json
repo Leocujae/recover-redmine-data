@@ -1,0 +1,34 @@
+[
+    {
+        "id": 3,
+        "name": "Proyecto_3",
+        "identifier": "T-3",
+        "description": "Descripción del Proyecto 3",
+        "status": 1,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-09-25T10:00:00Z",
+        "updated_on": "2023-09-25T10:00:00Z",
+        "custom_fields_id": 15,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Services",
+        "parent_id": -1,
+        "parent_name": ""
+    },
+    {
+        "id": 4,
+        "name": "Proyecto_4",
+        "identifier": "T-4",
+        "description": "Descripción del Proyecto 4",
+        "status": 2,
+        "is_public": true,
+        "inherit_members": true,
+        "created_on": "2023-09-30T16:45:00Z",
+        "updated_on": "2023-09-30T16:45:00Z",
+        "custom_fields_id": 3,
+        "custom_fields_name": "Project Type",
+        "custom_fields_value": "Group",
+        "parent_id": -1,
+        "parent_name": ""
+    }
+]
