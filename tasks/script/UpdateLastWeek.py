@@ -13,7 +13,6 @@ def calcular_fecha_ultima_semana():
     return lunes_semana_actual
 
 
-
 #obtener proyectos modificados en la ultima semana
 def function(url='tasks/test/Test-6.json', BeginningWeek=calcular_fecha_ultima_semana()):
 
@@ -39,7 +38,6 @@ def function(url='tasks/test/Test-6.json', BeginningWeek=calcular_fecha_ultima_s
         json.dump(missin_value, file)
  
  return filter_data
- 
  
  
 print(function())

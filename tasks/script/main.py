@@ -1,6 +1,12 @@
 import Issues_Redmine
+import json
 
 
-values = Issues_Redmine.conection()
+ruta_al_json = "tasks/test_flattened_data/Test-3.json"
+
+# Abre el archivo JSON y carga su contenido
+with open(ruta_al_json, 'r') as archivo_json:
+    values = json.load(archivo_json)
+
 flattened_data = Issues_Redmine.flattenJSON(values)
-Issues_Redmine.export_jsom(flattened_data)
+print(flattened_data)

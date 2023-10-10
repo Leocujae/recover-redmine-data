@@ -1,0 +1,12 @@
+{
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Ejemplo",
+    "hobbies": ["Leer", "Deporte", "Cine"],
+    "dirección": {
+      "calle": "123 Main Street",
+      "ciudad": "Ciudad Ejemplo"
+    },
+    "fecha_nacimiento": "1990-01-01"
+
+}
