@@ -1,12 +1,28 @@
 import Issues_Redmine
 import json
+import tkinter as tk
+from tkinter import filedialog
 
 
-ruta_al_json = "tasks/test_flattened_data/Test-3.json"
+root = tk.Tk()
+root.withdraw()
 
-# Abre el archivo JSON y carga su contenido
-with open(ruta_al_json, 'r') as archivo_json:
-    values = json.load(archivo_json)
+selected_file = filedialog.askopenfilename()
 
-flattened_data = Issues_Redmine.flattenJSON(values)
-print(flattened_data)
+
+if selected_file:
+    # Abre el archivo JSON y carga su contenido
+    with open(selected_file, 'r') as archivo_json:
+        values = json.load(archivo_json)
+    
+    flattened_data = Issues_Redmine.flattenJSON(values)
+    
+    Issues_Redmine.export_jsom(flattened_data)
+    print(flattened_data)
+    
+else:
+    print("No se ha seleccionado ninguna carpeta.")
+
+root.destroy()
+
+

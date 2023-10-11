@@ -1,7 +1,7 @@
 import json
 import csv
 import requests as request
-
+from datetime import datetime, timedelta
 
 def conection():
 
@@ -200,12 +200,14 @@ def flattenJSON(values):
         flattened_data.append(flattened_issue)
     return flattened_data
 
-def export_jsom(flattened_data):
-    with open('tasks/file/issues.json', 'w') as file:
+def export_jsom(flattened_data,path = 'tasks/file/flattened_data_issues_'):
+    path = path + datetime.now().strftime("%Y_%m_%d_%H_%M_%S")+".json"
+
+    with open(path, 'w') as file:
         json.dump(flattened_data, file)
 
     header = flattened_data[0].keys()
-    with open('tasks/file/issues.csv', 'w', newline='') as file:
+    with open(path +'.csv', 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=header)
         writer.writeheader()
         writer.writerows(flattened_data)
