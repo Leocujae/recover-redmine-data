@@ -3,10 +3,10 @@ import csv
 import requests as request
 from datetime import datetime, timedelta
 
-def conection():
+def conection(KEY):
 
     headers = {
-        "X-Redmine-API-Key": "047f85e0b24fe4d7651e576fedd11ad410336e2d"
+        "X-Redmine-API-Key": KEY
     }
 
     url = "https://redmine.generalsoftwareinc.com/issues.json"
