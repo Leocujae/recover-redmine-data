@@ -1,9 +1,10 @@
 import json
 import csv
 import requests as request
-from datetime import datetime, timedelta
 
-def conection(KEY):
+#from datetime import datetime, timedelta
+
+def getIssues(KEY):
 
     headers = {
         "X-Redmine-API-Key": KEY
@@ -12,6 +13,15 @@ def conection(KEY):
     url = "https://redmine.generalsoftwareinc.com/issues.json"
     response = request.get(url, headers=headers)
     values = response.json()
+    
+    
+    # writing projects to raw folder in S3 Bucket 
+    s3 = boto3.client('s3')
+    s3.put_object( 
+        Body=(bytes(json.dumps(values).encode('UTF-8'))),     
+        Bucket='bucketfor008182637297', 
+        Key='redmine/issues/raw_data/issues.json')     
+
     return values
 
 def flattenJSON(values):
@@ -83,9 +93,9 @@ def flattenJSON(values):
             flattened_issue['project_name'] = ''
         
 
-        """#watchers 
-        if dict(flattened_issue['watchers']) is not None:
-            flattened_issue.pop('watchers')"""
+        #watchers 
+        if "watchers" in flattened_issue :
+            flattened_issue.pop('watchers')
 
         # tracker
         tracker = dict(flattened_issue['tracker'])
@@ -180,16 +190,6 @@ def flattenJSON(values):
             flattened_issue['category_id'] = -1
             flattened_issue['category_name'] = ""
 
-        """#relaciones
-        relations = dict(flattened_issue).get('relations')
-        if dict(flattened_issue).get('relations') is not None:
-            for relation in relations:
-                flattened_issue['relation_issue_id']= relation['issue_id']
-                flattened_issue['relation_issue_type'] = relation['relation_type']
-        else :
-            flattened_issue['relation_issue_id'] = -1
-            flattened_issue['relation_issue_type'] ="""""
-
         # notes
         if dict(flattened_issue).get('notes') is None:
             flattened_issue['notes'] = ""
@@ -200,9 +200,16 @@ def flattenJSON(values):
         flattened_data.append(flattened_issue)
     return flattened_data
 
-def export_jsom(flattened_data,path = 'tasks/file/flattened_data_issues_'):
-    path = path + datetime.now().strftime("%Y_%m_%d_%H_%M_%S")+".json"
+def saveS3():
+    s3 = boto3.client('s3')
+    s3.put_object( 
+     Body=(bytes(json.dumps(flattened_data).encode('UTF-8'))),     
+     Bucket='bucketfor008182637297', 
+     Key='redmine/issues/flatten_data/issues/issues.json') 
 
+def export_jsom(flattened_data,path = 'tasks/file/flattened_data_issues'):
+    #path = path + datetime.now().strftime("%Y_%m_%d_%H_%M_%S")+".json"
+    path = path + ".json"
     with open(path, 'w') as file:
         json.dump(flattened_data, file)
 
