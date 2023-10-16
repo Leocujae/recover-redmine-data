@@ -200,7 +200,7 @@ def flattenJSON(values):
         flattened_data.append(flattened_issue)
     return flattened_data
 
-def saveS3():
+def saveS3(flattened_data):
     s3 = boto3.client('s3')
     s3.put_object( 
      Body=(bytes(json.dumps(flattened_data).encode('UTF-8'))),     
