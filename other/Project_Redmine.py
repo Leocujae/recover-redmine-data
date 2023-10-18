@@ -1,12 +1,30 @@
-import json
+import requests as request 
+#import GlueContext 
+#import boto3 
+import json 
 import csv
-import requests as request
+#import StringIO 
+#import requests as request 
+#from awsglue.transforms import *
+#from awsglue.utils import getResolvedOptionsfrom pyspark.context 
+#import SparkContext 
+#from pyspark.sql import SparkSessionfrom awsglue.context 
 
 headers = {
     "X-Redmine-API-Key": "047f85e0b24fe4d7651e576fedd11ad410336e2d"
 }
 
-url = "https://redmine.generalsoftwareinc.com/projects.json"
+
+
+# writing projects to raw folder in S3 Bucket 
+""" s3 = boto3.client('s3')
+s3.put_object( 
+     Body=(bytes(json.dumps(values).encode('UTF-8'))),     
+     Bucket='bucketfor008182637297', 
+     Key='redmine/projects/raw_data/projects.json')  """
+
+
+url = "https://redmine.generalsoftwareinc.com/projects.json?offset=0&limit=100"
 response = request.get(url, headers=headers)
 values = response.json()
 # Flatten the JSON data
@@ -47,3 +65,24 @@ with open('flattened_data.csv', 'w', newline='') as file:
     writer.writerows(flattened_data)
 print(projects)
 print(flattened_data)
+
+
+""" s3.put_object( 
+     Body=(bytes(json.dumps(flattened_data).encode('UTF-8'))),     
+     Bucket='bucketfor008182637297', 
+     Key='redmine/projects/flatten_data/projects/projects.json') 
+
+csv_buffer = StringIO() 
+header = flattened_data[0].keys()# Write the CSV data to the in-memory buffer 
+writer = csv.DictWriter(csv_buffer, fieldnames=header)
+writer.writeheader() 
+writer.writerows(flattened_data) 
+# Get the CSV contents from the buffercsv_content = csv_buffer.getvalue() 
+# Close the buffer 
+csv_buffer.close() 
+
+s3.put_object(     
+     Body=csv_content, 
+     Bucket='bucketfor008182637297',     
+     Key='redmine/projects/flatten_csv/projects/projects_csv.csv' 
+) """

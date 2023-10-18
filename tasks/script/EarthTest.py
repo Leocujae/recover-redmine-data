@@ -8,18 +8,14 @@ root = tk.Tk()
 root.withdraw()
 
 selected_file = filedialog.askopenfilename()
-
-
+#Issues_Redmine.getIssues("047f85e0b24fe4d7651e576fedd11ad410336e2d")
 if selected_file:
     # Abre el archivo JSON y carga su contenido
-    with open(selected_file, 'r') as archivo_json:
+    with open(selected_file, 'r',encoding='utf-8') as archivo_json:
         values = json.load(archivo_json)
     
     flattened_data = Issues_Redmine.flattenJSON(values)
-    
     Issues_Redmine.export_jsom(flattened_data)
-    print(flattened_data)
-    
 else:
     print("No se ha seleccionado ninguna carpeta.")
 
