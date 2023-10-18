@@ -10,7 +10,9 @@ def getIssues(KEY,Bucket='bucketfor008182637297',Key='redmine/issues/raw_data/is
     headers = {
         "X-Redmine-API-Key": KEY
     }
-    #Realizo una petición para saber el numero total de issues
+    # Realizo una petición para saber el numero total de issues , aprovecho para cargar los primeros 100
+    # creo la variable values y la tomo como base para almacenar el resto de issues 
+
     i = 100
     url = "https://redmine.generalsoftwareinc.com/issues.json?offset=0&limit=100"
     response = request.get(url, headers=headers)
