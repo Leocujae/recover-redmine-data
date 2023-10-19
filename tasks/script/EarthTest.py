@@ -6,7 +6,7 @@ from tkinter import filedialog
 
 root = tk.Tk()
 root.withdraw()
-
+#Issues_Redmine.getIssues("047f85e0b24fe4d7651e576fedd11ad410336e2d")
 selected_file = filedialog.askopenfilename()
 #Issues_Redmine.getIssues("047f85e0b24fe4d7651e576fedd11ad410336e2d")
 if selected_file:
@@ -16,6 +16,7 @@ if selected_file:
     
     flattened_data = Issues_Redmine.flattenJSON(values)
     Issues_Redmine.export_jsom(flattened_data)
+    #Issues_Redmine.export_jsom(flattened_data)
 else:
     print("No se ha seleccionado ninguna carpeta.")
 
